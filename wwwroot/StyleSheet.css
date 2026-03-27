@@ -1,0 +1,225 @@
+﻿/* 1. RESET & CONTAINER */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}*/
+.game-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* The Magic Ratio */
+    max-height: 100vh;
+    max-width: 177.78vh; /* 100 * 16/9 */
+    margin: auto;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Ensure body centers the container */
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 2. CENTERED LAYER LOGIC */
+.layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+/* 3. BUTTERFLY: Staggered Scrapbook Entrance */
+@keyframes scrapbookEntry {
+    0% {
+        transform: translate(-120%, -120%) rotate(-15deg);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.butterfly {
+    z-index: 100;
+    animation: scrapbookEntry 1.5s steps(8) forwards;
+}
+
+/* 4. CLOUDS: Crunchy Drifting (Preserved) */
+@keyframes driftLTR {
+    from {
+        transform: translate(-55%, -50%);
+    }
+
+    to {
+        transform: translate(-45%, -50%);
+    }
+}
+
+.cloud-ltr {
+    z-index: 5;
+    animation: driftLTR 15s steps(20) infinite alternate;
+}
+
+@keyframes driftRTL {
+    from {
+        transform: translate(-45%, -50%);
+    }
+
+    to {
+        transform: translate(-55%, -50%);
+    }
+}
+
+.cloud-rtl {
+    z-index: 5;
+    animation: driftRTL 18s steps(25) infinite alternate;
+}
+
+/* 5. START BUTTON: The Interactive Hitbox */
+.design-bounds {
+    position: relative; /* THIS IS THE MOST IMPORTANT LINE */
+    width: 100%;
+    height: 100%;
+}
+
+/* 2. Fix the UI Layer so it's not a 'ghost' */
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* 3. The Start Button - Forced Visibility */
+/*.start-link {
+    display: block !important;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+
+    background-image: url("images/start_normal - Copy.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: pixelated;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1001;
+}
+    .start-link:hover {
+        background-image: url("images/start_hover - Copy.png") !important;
+        transform: translate(-50%, -50%) scale(1.1);
+    }*/
+/* 3. The Start Button - Fluid & Responsive */
+.start-link {
+    display: block !important;
+    position: absolute;
+    /* Position relative to the background (72% down, 50% across) */
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Sizing relative to the background width */
+    width: 20%;
+    aspect-ratio: 184 / 86; /* Keeps the button from stretching */
+
+    background-image: url("images/start_normal - Copy.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: pixelated;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.1s steps(2);
+}
+
+    .start-link:hover {
+        background-image: url("images/start_hover - Copy.png") !important;
+        /* Scale while maintaining the center anchor */
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+@keyframes breath {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.text-layer {
+    z-index: 50 !important;
+    animation: breath 1.5s steps(3) infinite;
+    animation-delay: 1.002s;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.background-image {
+    z-index: 1;
+}
+
+
+
+
+
+/* 1. Reset everything to use the cursor */
+html, body, .game-container, .design-bounds, .ui-layer, .layer {
+    cursor: url('images/cursor2.png') 0 0, auto !important;
+}
+
+/* 2. Target the Start Button specifically and any potential "Ghost" layers */
+.start-link,
+.start-link:hover,
+.text-layer,
+.butterfly,
+.cloud-ltr,
+.cloud-rtl {
+    cursor: url('images/cursor2.png') 0 0, pointer !important;
+}
+
+/* 3. The "Global Hammer" - if this doesn't work, there is a path error */
+* {
+    cursor: url('images/cursor2.png') 0 0, auto !important;
+}

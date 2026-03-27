@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israa's Categories</title>
+    <link rel="stylesheet" href="c_sheet.css">
+    <style>
+        /* Scaling wrapper - centers and scales the fixed-size stage */
+        .stage-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage-wrapper">
+        <div class="portfolio-stage" id="portfolioStage">
+            <img src="images/category_bg.png" class="layer-bg">
+
+            <div class="ui-overlay">
+                <div class="back-hitbox" onclick="goToHome()"></div>
+                <img src="images/back_arrow.png" class="back-home-btn">
+
+                <div class="arrow-hitbox left" onclick="changeCategory(-1)"></div>
+                <img src="images/l_arrow.png" class="arrow-img left">
+
+                <div class="main-hitbox" onclick="openForm()"></div>
+                <img id="display-icon" src="images/am_2.png" class="character-img">
+
+                <div class="arrow-hitbox right" onclick="changeCategory(1)"></div>
+                <img src="images/r_arrow.png" class="arrow-img right">
+            </div>
+
+            <div id="form-am_2" class="category-form">
+                <h1>About Me: Israa AlWassity (Celia)</h1><br />
+                <h3>Design & Media Informatics | GJU | Artist & Developer</h3>
+                <div class="content-wrapper">
+                    <h4>Academic Excellence</h4>
+                    <p><strong>University (GJU):</strong> 3rd-year DMI student with a 4.0/4.0 GPA (94.5/100). Currently ranked 1st in my major and recipient of the Board of Trustees (BOT) Scholarship.</p>
+                    <p><strong>High School:</strong> Achieved a 96.8 GPA (Scientific stream), ranking 1st in my school.</p>
+                    <p><strong>The Balance:</strong> My results reflect a rare ability to master both logic-heavy courses (Math/Coding) and creative studio-based courses (Design).</p>
+
+                    <h4>The INFJ Mindset & Leadership</h4>
+                    <p><strong>Psychological Design:</strong> I investigate the "why" behind every decision; from color palettes to the final user journey.</p>
+                    <p><strong>Behavioral Forecasting:</strong> As an INFJ, my work centers on understanding human behavior to build intuitive digital experiences.</p>
+                    <p><strong>Soft Skills & Leadership:</strong> High marks in Soft Skills (98) and Leadership (91). I utilize a blend of Pacesetting, Visionary, and Affiliative leadership styles.</p>
+
+                    <h4>Technical & Creative Toolkit</h4>
+                    <p><strong>Programming:</strong> HTML, CSS, JavaScript, JSP, Java (OOP), C#, PHP, MySQL, and C++.</p>
+                    <p><strong>Creative Suite:</strong> Adobe (Illustrator, After Effects), Blender (3D Modeling), and Unity (AR & 2D Game Dev).</p>
+                    <p><strong>Traditional Art:</strong> I bridge the gap with pencil, watercolor, and calligraphy.</p>
+                </div>
+                <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+            </div>
+
+            <div id="form-art" class="category-form">
+                <h1>Artworks</h1>
+                <div class="content-wrapper">
+                    <h4>Calligraphy</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/calligraphy/calligraphy1.jpg"><div class="art-info">Qura'an Verse _ Al Thuluth style 2024</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/calligraphy/calligraphy2.jpg"><div class="art-info">Qura'an Verse _ Closeup 2024</div></div>
+                    </div><br />
+                    <h4>Traditional Anime Sketches</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/anime_g1.jpg"><div class="art-info">Strawberry Dreams 2023-Original Illustration</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/nine_1.jpg"><div class="art-info">Baby Nine 2023</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/sukon_1.jpg"><div class="art-info">Ryomen Sukuna 2021</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/chifuyo1.jpg"><div class="art-info">Matsuno Chifuyu 2021</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/bakugo_1.jpg"><div class="art-info">Katsuki Bakugo 2021</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/anime/killua_and_alluka1.jpg"><div class="art-info">Killua & Alluka 2019</div></div>
+                    </div>
+                    <br />
+                    <h4>Pencil Portraits</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/realistic/jake_1.jpg"><div class="art-info">Jake - Enhyphen 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/realistic/beomgyu_1.jpg"><div class="art-info">Beomgyu - TXT 2023</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/realistic/jk.jpg"><div class="art-info">Jngkook - BTS 2022</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/realistic/namjoon.jpg"><div class="art-info">Namjoon - BTS 2021</div></div>
+                    </div>
+                    <br />
+                    <h4>Chibi Art</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/chibi/hee.jpg"><div class="art-info">Heeseung Chibi 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/chibi/sunghoon.jpg"><div class="art-info">Sunghoon Chibi 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/chibi/armen_and_mikasa.jpg"><div class="art-info">Armen and Mikasa 2024</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/chibi/pipopa.jpg"><div class="art-info">PI PO PA 2023</div></div>
+                    </div>
+                    <br />
+                    <h4>Fantasy</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/fantasy/crescent_moon.jpg"><div class="art-info">Crescent Moon 2024</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/fantasy/oceangirl.jpg"><div class="art-info">Ocean Girl 2023-Original Illustration</div></div>
+                    </div><br />
+                    <br />
+                    <h4>Digital Illustrations</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/digital/red_eye_girl.jpg"><div class="art-info">Intense Gaze (incomplete) 2024</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/digital/mingyu.jpg"><div class="art-info">Mingyu Chibi (finger drawn)<br /> 2022-Original Illustration</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/digital/nam.png"><div class="art-info">Namjoon Chibi (finger drawn) 2022</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/digital/IMG_3157.png"><div class="art-info">Armin Chibi (finger drawn)<br /> 2022-Original Illustration</div></div>
+                    </div>
+                    <br />
+                    <h4>Sketches</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/sketches/rebranding.jpg"><div class="art-info">BULDAK - rebranding 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/sketches/winky.jpg"><div class="art-info">Winkey 2024-Original Illustration</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/sketches/sketch1.jpg"><div class="art-info">Analytical Sketching 2023</div></div>
+                    </div><br />
+                    <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+                </div>
+            </div>
+            <div id="form-3d" class="category-form">
+                <h1>Artworks</h1>
+                <div class="content-wrapper">
+                    <h4>Low-Poly Medieval Market</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/vill.png"><div class="art-info">Main shot - 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/vill_side.png"><div class="art-info">Side shot - 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/assets_vill.png"><div class="art-info">Assets sheet - 2025</div></div>
+                    </div><br />
+                    <h4>Low-Poly Dungeon</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/hole view final.png"><div class="art-info">Overview - 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/upper view final.png"><div class="art-info">Upper view - 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/dungeon_assets.png"><div class="art-info">Assets sheet - 2025</div></div>
+                    </div><br />
+                    <h4>2018 Audi R8 (first realistic 3D model)</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/car.png"><div class="art-info">Main shot - 2025</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/3d/car_mulit_shots.png"><div class="art-info">Multiple shots - 2025</div></div>
+                    </div><br />
+                    <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+                </div>
+            </div>
+            <div id="form-logo" class="category-form">
+                <h1>Artworks</h1>
+                <div class="content-wrapper">
+                    <h4>Classvera - Educational Platform</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/logo/3 new logos-56.png"><div class="art-info">Classvera - 2025</div></div>
+                    </div><br />
+                    <h4>Experimental Branding: "INCEPTION" Game Concept Logo</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/logo/4.png"><div class="art-info">INCEPTION - 2026</div></div>
+                    </div><br />
+                    <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+                </div>
+            </div>
+            <div id="form-ar" class="category-form">
+                <h1>British Museum AR Experience - 2025 (University Project)</h1>
+                <div class="content-wrapper">
+                    <h4>Video</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><video><source src="images/ar/museum.mp4" type="video/mp4"> <source src="images/ar/museum.ogg" type="video/ogg"> Your browser does not support the video tag.</video></div>
+                    </div>
+                </div><br />
+                <h4>UI screenshots</h4>
+                <div class="art-grid">
+                    <div class="art-card" onclick="openLightbox(this)"><img src="images/ar/1.png"></div>
+                    <div class="art-card" onclick="openLightbox(this)"><img src="images/ar/2.png"></div>
+                    <div class="art-card" onclick="openLightbox(this)"><img src="images/ar/3.png"></div>
+                </div><br />
+                <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+            </div>
+            <div id="form-kids_app" class="category-form">
+                <h1>Kids App Design as a Freshman Student - 2023</h1>
+                <div class="content-wrapper">
+                    <h4>Video</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><video><source src="images/kids/final_video_sound1.mp4" type="video/mp4"> <source src="images/kids/video.ogg" type="video/ogg"> Your browser does not support the video tag.</video></div>
+                    </div><br />
+                    <h4>mockup</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/mockup.jpg"></div>
+                    </div><br />
+                    <h4>Character and App Icon</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/winky.png"><div class="art-info">Winky</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/logoooooooo.png"><div class="art-info">App Icon</div></div>
+                    </div><br />
+                    <h4>Logo and Color Scheme</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/logo.png"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/logo_var.jpg"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/color scheme.jpg"><div class="art-info">color scheme</div></div>
+                    </div><br />
+                    <h4>Instagram and Poster</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/insta(1).jpg"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/insta 2.jpg"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/instagram.png"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/poster.jpg"></div>
+                    </div><br />
+                    <h4>UI and Wireframe</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/ui.jpg"></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/kids/wireframe.jpg"></div>
+                    </div><br />
+                    <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+                </div>
+            </div>
+            <div id="form-anim" class="category-form">
+                <h1>Animation projects (After effects)</h1>
+                <div class="content-wrapper">
+                    <h4>panda</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><video><source src="images/animation/panda_v.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="art-info">Video-panda animation 2026</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/animation/panda.jpg"><div class="art-info">chibbi panda - original illustration 2026</div></div>
+                    </div>
+                    <h4>Arabic proverb: The best companion in this world is a book</h4>
+                    <div class="art-grid">
+                        <div class="art-card" onclick="openLightbox(this)"><video><source src="images/animation/proverb_v.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="art-info">video-Arabic proverb 2026</div></div>
+                        <div class="art-card" onclick="openLightbox(this)"><img src="images/animation/proverb.png"><div class="art-info">cozy vibes - original illustration</div></div>
+                    </div><br />
+                    <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+                </div>
+            </div>
+            <div id="form-web_g" class="category-form">
+                <h1>Iin progress...</h1>
+                <button class="back-btn" onclick="closeForm()">Back to Stage</button>
+            </div>
+
+            <div id="artModal" class="modal" onclick="closeLightbox()">
+                <img class="modal-content" id="fullImg" style="display:none;">
+                <video class="modal-content" id="fullVideo" controls style="display:none;"></video>
+                <div id="caption"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        // Category management
+        const categories = ["am_2", "art", "3d", "logo", "kids_app", "anim", "ar", "web_g"];
+        let index = 0;
+
+        function changeCategory(dir) {
+            index = (index + dir + categories.length) % categories.length;
+            document.getElementById('display-icon').src = `images/${categories[index]}.png`;
+        }
+
+        function openForm() {
+            const currentForm = document.getElementById(`form-${categories[index]}`);
+            if (currentForm) currentForm.style.display = "block";
+        }
+
+        function closeForm() {
+            document.querySelectorAll('.category-form').forEach(f => f.style.display = "none");
+        }
+
+        function goToHome() { window.location.href = "index.html"; }
+
+        function openLightbox(card) {
+            const modal = document.getElementById("artModal");
+            const modalImg = document.getElementById("fullImg");
+            const modalVideo = document.getElementById("fullVideo");
+            const captionText = document.getElementById("caption");
+
+            const cardImg = card.querySelector('img');
+            const cardVideo = card.querySelector('video');
+            const cardInfo = card.querySelector('.art-info');
+
+            modal.style.display = "flex";
+            captionText.innerHTML = cardInfo ? cardInfo.innerHTML : "";
+
+            if (cardVideo) {
+                modalImg.style.display = "none";
+                modalVideo.style.display = "block";
+                modalVideo.src = cardVideo.querySelector('source').src;
+                modalVideo.play();
+            } else if (cardImg) {
+                modalVideo.style.display = "none";
+                modalVideo.pause();
+                modalImg.style.display = "block";
+                modalImg.src = cardImg.src;
+            }
+
+            event.stopPropagation();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById("artModal");
+            const modalVideo = document.getElementById("fullVideo");
+            modal.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = "";
+        }
+    </script>
+</body>
+</html>
