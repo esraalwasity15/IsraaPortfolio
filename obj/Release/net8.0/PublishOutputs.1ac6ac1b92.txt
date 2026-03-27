@@ -1,0 +1,7 @@
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\IsraaPortfolio.exe
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\appsettings.json
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\IsraaPortfolio.dll
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\IsraaPortfolio.deps.json
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\IsraaPortfolio.runtimeconfig.json
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Release\net8.0\PubTmp\Out\IsraaPortfolio.pdb

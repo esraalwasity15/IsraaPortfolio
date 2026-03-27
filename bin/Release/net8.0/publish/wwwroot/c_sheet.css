@@ -1,0 +1,378 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: #0d0e12;
+    overflow: hidden;
+    font-family: 'VT323', monospace;
+}
+
+/* THE MAGIC: This centers the stage and scales it to fit the screen */
+.stage-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d0e12;
+    overflow: hidden;
+}
+.portfolio-stage {
+    position: relative;
+    /* This is the magic lock */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-height: 100%;
+    max-width: 177.78vh; /* 16/9 * 100vh */
+
+    background-color: #000;
+    container-type: size; /* Keeps your cqw units working perfectly */
+    overflow: hidden;
+}
+
+.layer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the BG never stretches weirdly */
+    z-index: 1;
+}
+/* UI ELEMENTS: All use % to stay glued to the BG image */
+.ui-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none; /* Allows clicks to reach the background if needed */
+}
+
+.main-display {
+    position: absolute;
+    /* Lowered to sit inside the white box better */
+    top: 50%;
+    left: 50%;
+    /* Increased width to match your "intended" screenshot */
+    width: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto; /* CRITICAL: Enables clicking */
+    cursor: pointer;
+    z-index: 50;
+}
+    .main-display:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .arrow {
+        position: absolute;
+        top: -7%;
+        /* Your arrow images have a lot of empty space, so 20% width works best */
+        width: 40%;
+        pointer-events: auto;
+        cursor: pointer;
+        /* HIGHEST z-index to ensure they are on top and clickable */
+        z-index: 110;
+    }
+
+    .arrow.left {
+        /* Position adjusted based on the whitespace in l_arrow.png */
+        left: -5%;
+    }
+
+    .arrow.right {
+        /* Position adjusted based on the whitespace in r_arrow.png */
+        right: -5%;
+    }
+    .arrow:hover {
+        transform: translate(-4px, -4px) scale(1.1);
+    }
+
+    .back-home-btn {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 12%; /* Matches the scale of the pink arrow */
+    }
+.back-hitbox {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 16%;
+    height: 10%;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 1500;
+}
+
+    /* Hover effect for the button when hovering the hitbox */
+    .back-hitbox:hover + .back-home-btn {
+        transform: scale(1.2);
+    }
+
+.category-form {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 14, 18, 0.98);
+    z-index: 2000;
+    padding: 50px 50px; /* 8% of 1920/1080 */
+    overflow-y: auto;
+}
+    .category-form::-webkit-scrollbar {
+        width: 0.8cqw;
+    }
+
+    .category-form::-webkit-scrollbar-track {
+        background: #001a5e;
+        border-left: 4px solid #fff;
+    }
+    .category-form::-webkit-scrollbar-thumb {
+        background: #ff4fa1;
+        border: 4px solid #fff;
+        box-shadow: inset -3px -3px 0px #b02e6a;
+    }
+.content-wrapper {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    text-align: center;
+}
+.category-form h1 {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 4.2cqw; /* ~4.5rem equivalent */
+    color: #ff4fa1;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 25px;
+    text-shadow: 4px 4px 0px #000;
+    position: relative;
+}
+    .category-form h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        height: 12px;
+        background-color: #ffffff;
+        box-shadow: 4px 4px 0px #000;
+    }
+
+.category-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.7cqw;
+}
+.category-form h4 {
+    color: #ffb8e0;
+    margin-top: 50px;
+    font-size: 2.2cqw;
+    text-align: left;
+    border-left: 6px solid #ff4fa1;
+    padding-left: 15px;
+}
+.category-form p {
+    font-size: 1.8cqw;
+    line-height: 1.4;
+    color: #e0e0e0;
+    margin-top: 20px;
+    text-align: left;
+}
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    gap: 1.5cqw;
+    padding: 1cqw 0;
+}
+.art-card {
+    background: #001a5e;
+    border: 0.2cqw solid #ffffff;
+    box-shadow: 0.3cqw 0.3cqw 0px #000;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.1s steps(2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+    .art-card:hover {
+        transform: translate(-0.2cqw, -0.2cqw);
+        box-shadow: 0.5cqw 0.5cqw 0px #ff4fa1;
+    }
+    .art-card img,
+    .art-card video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+    }
+.art-info {
+    padding: 0.5cqw; /* ~10px */
+    font-size: 1.4cqw;
+    background: #001a5e;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: zoom-out;
+}
+.modal-content {
+    max-width: 85%;
+    max-height: 80%;
+    border: 0.4cqw solid #ffffff; /* ~8px */
+    box-shadow: 0 0 1.5cqw #ff4fa1; /* ~30px glow */
+}
+#caption {
+    margin-top: 1.3cqw; /* ~25px */
+    font-size: 2.5cqw; /* ~48px */
+    color: #ff4fa1;
+    text-shadow: 0.15cqw 0.15cqw 0px #000;
+}
+.back-btn {
+    background: #ff4fa1;
+    color: #ffffff;
+    border: 0.2cqw solid #ffffff;
+    padding: 0.5cqw 2.3cqw; /* 10px 45px */
+    cursor: pointer;
+    display: block;
+    margin: 3cqw auto; /* 60px */
+    font-family: 'VT323', monospace;
+    font-size: 2.2cqw;
+    box-shadow: 0.4cqw 0.4cqw 0px #000;
+}
+
+    .back-btn:active {
+        transform: translate(0.2cqw, 0.2cqw);
+        box-shadow: 0px 0px 0px #000;
+    }
+
+
+
+
+
+/* 1. THE VISUALS: Centered and Static */
+.character-img, .arrow-img {
+    position: absolute;
+    top: 50%; /* Vertical center of the stage */
+    left: 50%; /* Horizontal center of the stage */
+    transform: translate(-50%, -50%); /* Keeps them perfectly centered */
+    pointer-events: none;
+    z-index: 5;
+    transition: transform 0.1s steps(2);
+}
+
+/* Character stays at your perfect size */
+.character-img {
+    width: 100%;
+}
+
+/* Arrows stay at your preferred 40% size */
+.arrow-img {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 5;
+    width: 40%;
+    transition: transform 0.1s steps(2);
+}
+    .arrow-img.left {
+        left: 15%; /* This moves the LEFT image to the left side */
+    }
+
+    .arrow-img.right {
+        left: 84%; /* This moves the RIGHT image to the right side */
+    }
+
+/* 2. THE HITBOXES: Positioned over the visible art */
+.main-hitbox {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25cqw;
+    height: 40cqw;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.arrow-hitbox {
+    position: absolute;
+    top: 54%;
+    width: 12cqw;
+    height: 12cqw;
+    transform: translate(-50%, -50%); /* Added -50% X-axis to match the image */
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 110;
+}
+    /* Adjust these percentages until the red boxes (if they were visible) 
+   sit perfectly over the pink arrowheads */
+    .arrow-hitbox.left {
+        left: 35%;
+    }
+
+    .arrow-hitbox.right {
+        left: 65%;
+    }
+
+/* 3. HOVER EFFECTS */
+.main-hitbox:hover ~ .character-img {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+/* Use ~ to find the image since they are siblings in the ui-overlay */
+.arrow-hitbox.left:hover ~ .arrow-img.left {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.arrow-hitbox.right:hover ~ .arrow-img.right {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+html, body {
+    min-width: 100vw;
+    min-height: 100vh;
+    cursor: url('images/cursor2.png'), auto !important;
+}
+
+.main-hitbox,
+.arrow-hitbox,
+.back-hitbox,
+.back-btn,
+.art-card,
+button,
+a {
+    cursor: url('images/cursor2.png'), pointer !important;
+}
+
+
