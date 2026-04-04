@@ -1,3 +1,4 @@
+wwwroot\categories.html
 wwwroot\c_sheet.css
 wwwroot\images\1.png
 wwwroot\images\2.png
@@ -40,11 +41,14 @@ wwwroot\images\calligraphy\calligraphy2.jpg
 wwwroot\images\category_bg.png
 wwwroot\images\chibi\armen_and_mikasa.jpg
 wwwroot\images\chibi\hee.jpg
+wwwroot\images\chibi\IMG_3151.PNG
+wwwroot\images\chibi\IMG_3157.PNG
 wwwroot\images\chibi\pipopa.jpg
 wwwroot\images\chibi\sunghoon.jpg
 wwwroot\images\cloud_ltr.png
 wwwroot\images\cloud_rtl.png
 wwwroot\images\cursor2.png
+wwwroot\images\digital\arm.PNG
 wwwroot\images\digital\IMG_3157.PNG
 wwwroot\images\digital\mingyu.jpg
 wwwroot\images\digital\nam.PNG
@@ -85,4 +89,3 @@ wwwroot\images\text_layer.png
 wwwroot\images\web_g.png
 wwwroot\index.html
 wwwroot\StyleSheet.css
-wwwroot\categories.html

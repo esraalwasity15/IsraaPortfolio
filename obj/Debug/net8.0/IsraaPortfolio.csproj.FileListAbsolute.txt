@@ -13,6 +13,7 @@ D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\IsraaPortfolio.Assem
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\IsraaPortfolio.AssemblyInfo.cs
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\IsraaPortfolio.csproj.CoreCompileInputs.cache
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\IsraaPortfolio.MvcApplicationPartsAssemblyInfo.cache
+D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\IsraaPortfolio.sourcelink.json
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\rjimswa.dswa.cache.json
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 D:\portfolio\portfolio 2026\IsraaPortfolio\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

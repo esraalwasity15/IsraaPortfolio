@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>goodbye!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            /* Use your pixel background image */
+            background-image: url('images/sky.png');
+            background-size: cover;
+            background-position: top center; 
+            background-repeat: no-repeat;
+            image-rendering: pixelated; 
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 5vw;
+            color: #ff4fa1;
+            text-transform: uppercase;
+            text-align: center;
+            padding-bottom: 2cqw; 
+            text-shadow: 0.3vw 0.3vw 0px #000;
+            position: relative;
+            width: fit-content;
+            z-index: 10;
+        }
+
+        .sparkle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 0.6vw;
+            height: 0.6vw;
+            background: #FFD700; 
+            box-shadow: 0 -0.6vw 0 #FFD700, 0 0.6vw 0 #FFD700, -0.6vw 0 0 #FFD700, 0.6vw 0 0 #FFD700, 0.15vw 0.15vw 0px #B8860B; /* Scalable dark gold "depth" shadow */
+
+            opacity: 0;
+            animation: pixelTwinkle 1s steps(2) infinite;
+            image-rendering: pixelated;
+        }
+
+        @keyframes pixelTwinkle {
+            0%, 100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+                box-shadow: 0 -0.9vw 0 #FFD700, 0 0.9vw 0 #FFD700, -0.9vw 0 0 #FFD700, 0.9vw 0 0 #FFD700, 1px 1px 0px #B8860B;
+            }
+
+            75% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <body>
+        <div class="sparkle-container">
+            <div class="sparkle" style="top: 25%; left: 15%; animation-delay: 0s;"></div>
+            <div class="sparkle" style="top: 10%; left: 80%; animation-delay: 0.2s;"></div>
+            <div class="sparkle" style="top: 75%; left: 20%; animation-delay: 0.4s;"></div>
+            <div class="sparkle" style="top: 65%; left: 75%; animation-delay: 0.1s;"></div>
+            <div class="sparkle" style="top: 40%; left: 50%; animation-delay: 0.6s;"></div>
+            <div class="sparkle" style="top: 18%; left: 12%; animation-delay: 0.1s;"></div>
+            <div class="sparkle" style="top: 42%; left: 88%; animation-delay: 0.5s;"></div>
+            <div class="sparkle" style="top: 30%; left: 35%; transform: scale(1.8); animation-delay: 0.3s;"></div>
+        </div>
+
+        <h1>Thank you for visiting my portfolio's website!</h1>
+    </body>
+</html>
